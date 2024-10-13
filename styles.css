@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --primary-color: #3f51b5;
+    --secondary-color: #304ffe;
+    --background-color: #f5f5f5;
+    --text-color: #212121;
+    --border-color: #e0e0e0;
+    --table-header-bg: #3f51b5;
+    --table-row-bg: #e8ebee;
+    --table-row-hover: #4b6fc659;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: var(--primary-color);
+    padding: 10px 0;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.control-panel {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.33);
+    margin-bottom: 30px;
+}
+
+.search-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.search-field, .search-operator, .search-input, .page-size-control {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.page-size-control {
+    margin-right: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+select, input[type="text"] {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+select:focus, input[type="text"]:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+.table-container {
+    width: 140%; 
+    margin-left: -20%; 
+    overflow-x: auto;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--table-row-bg);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-right: 1px solid #00000021;
+}
+
+th:last-child, td:last-child {
+    border-right: none;
+}
+
+th {
+    background-color: var(--table-header-bg);
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: var(--table-row-hover);
+}
+
+/* #hero-details {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+} */
+.hero-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+  
+.hero-popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 120%;
+    max-height: 80%;
+    overflow-y: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-popup-content h2 {
+    margin-bottom: 10px;
+}
+
+.hero-popup-content img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px; 
+}
+
+.hero-popup-content p {
+    margin-bottom: 5px;
+}
+
+/* arrows for column sorting */
+th {
+    cursor: pointer;
+}
+th::after {
+    content: '\25B4'; /* Upward triangle */
+    margin-left: 5px;
+    visibility: hidden;
+}
+    th.sort-asc::after {
+    content: '\25B4';
+    visibility: visible;
+}
+    th.sort-desc::after {
+    content: '\25BE'; /* Downward triangle */
+    visibility: visible;
+}
+
+/* pagination  */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination-controls button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    background-color: #f4f4f4;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-controls button:hover {
+    background-color: #ddd;
+}
+
+.pagination-controls button.active {
+    background-color: #007BFF;
+    color: white;
+}
+  
+@media screen and (max-width: 1200px) {
+    .table-container {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .search-controls {
+        flex-wrap: wrap;
+    }
+    
+    .search-field, .search-operator, .search-input, .page-size-control {
+        flex-basis: calc(50% - 10px);
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .search-field, .search-input {
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .search-field, .search-operator, .search-input, .page-size-control {
+        flex-basis: 100%;
+    }
+    
+    table {
+        font-size: 14px;
+    }
+    
+    th, td {
+        padding: 8px 10px;
+    }
+    .pagination-controls {
+        flex-wrap: wrap;
+    }
+
+    .pagination-controls button {
+        padding: 8px 10px;
+        margin: 5px;
+        font-size: 14px;
+    }
+}

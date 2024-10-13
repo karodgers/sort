@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortable</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Superhero Search</h1>
+        </header>
+        
+        <main>
+            <section id="controls-section">
+                <div class="control-panel">
+                    <div class="search-controls">
+                        <div class="search-field">
+                            <label for="search-field">Search Field:</label>
+                            <select id="search-field">
+                                <option value="name">Name</option>
+                                <option value="biography.fullName">Full Name</option>
+                                <option value="powerstats.intelligence">Intelligence</option>
+                                <option value="powerstats.strength">Strength</option>
+                                <option value="powerstats.speed">Speed</option>
+                                <option value="appearance.height">Height</option>
+                                <option value="appearance.weight">Weight</option>
+                            </select>
+                        </div>
+                        <div class="search-operator">
+                            <label for="search-operator">Operator:</label>
+                            <select id="search-operator">
+                                <option value="include">Include</option>
+                                <option value="exclude">Exclude</option>
+                                <option value="equal">Equal</option>
+                                <option value="notEqual">Not Equal</option>
+                                <option value="greaterThan">Greater Than</option>
+                                <option value="lesserThan">Less Than</option>
+                            </select>
+                        </div>
+                        <div class="search-input">
+                            <label for="advanced-search">Search:</label>
+                            <input type="text" id="advanced-search" placeholder="Enter search term...">
+                        </div>
+                        <div class="page-size-control">
+                            <label for="page-size">Page Size:</label>
+                            <select id="page-size">
+                                <option value="10">10</option>
+                                <option value="20" selected>20</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                                <option value="all">All</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="hero-table-section">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Icon</th>
+                                <th>Name</th>
+                                <th>Full Name</th>
+                                <th>Intelligence</th>
+                                <th>Strength</th>
+                                <th>Speed</th>
+                                <th>Gender</th>
+                                <th>Race</th>
+                                <th>Height</th>
+                                <th>Weight</th>
+                                <th>Place Of Birth</th>
+                                <th>Alignment</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hero-tbody">
+                            <!-- Populated dynamically with heroes -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Pagination controls -->
+            <section id="pagination-section">
+                <div id="pagination-controls" class="pagination-controls">
+                    <!-- dynamically generated here -->
+                </div>
+            </section>
+            
+
+            <section id="hero-details">
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
