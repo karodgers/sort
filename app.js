@@ -197,30 +197,36 @@ function setupPagination(totalItems, currentPage, pageSize) {
   }
 }
 
-// Function to sort heroes based on column
 function sortHeroes(column) {
-  // Determine sort order for the column
   const order = sortOrder[column] === 'asc' ? 'desc' : 'asc';
   sortOrder[column] = order; // Update sort order for this column
 
-  currentHeroes.sort((a, b) => {
-    const aValue = getFieldByPath(a, column);
-    const bValue = getFieldByPath(b, column);
-    
-    // Handle numeric sorting for powerstats and appearance
-    if (typeof aValue === 'string' && aValue.includes('/')) {
-      return order === 'asc' ? extractNumber(aValue) - extractNumber(bValue) : extractNumber(bValue) - extractNumber(aValue);
-    } else if (typeof aValue === 'string') {
-      return order === 'asc' ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
-    } else {
-      return order === 'asc' ? aValue - bValue : bValue - aValue;
-    }
+  // Clear previous sort indicators
+  document.querySelectorAll('.sort-indicator').forEach(indicator => {
+      indicator.classList.remove('asc', 'desc');
   });
 
-  // Reset to the first page after sorting
+  // Set the current column's indicator
+  const header = document.querySelector(`th[data-column="${column}"] .sort-indicator`);
+  header.classList.add(order); // Add the class for the current order
+
+  currentHeroes.sort((a, b) => {
+      const aValue = getFieldByPath(a, column);
+      const bValue = getFieldByPath(b, column);
+      
+      if (typeof aValue === 'string' && aValue.includes('/')) {
+          return order === 'asc' ? extractNumber(aValue) - extractNumber(bValue) : extractNumber(bValue) - extractNumber(aValue);
+      } else if (typeof aValue === 'string') {
+          return order === 'asc' ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+      } else {
+          return order === 'asc' ? aValue - bValue : bValue - aValue;
+      }
+  });
+
   currentPage = 1;
   displayHeroes(currentHeroes, currentPage, pageSize); // Display sorted heroes
 }
+
 
 // Add click event listeners to table headers for sorting
 document.querySelectorAll('th').forEach(header => {

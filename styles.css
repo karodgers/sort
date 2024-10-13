@@ -173,24 +173,20 @@ tr:hover {
 .hero-popup-content p {
     margin-bottom: 5px;
 }
-
-/* arrows for column sorting */
-th {
-    cursor: pointer;
-}
-th::after {
-    content: '\25B4'; /* Upward triangle */
+/* sort indicator */
+.sort-indicator {
     margin-left: 5px;
-    visibility: hidden;
+    font-size: 0.8em; /* Adjust size if needed */
 }
-    th.sort-asc::after {
-    content: '\25B4';
-    visibility: visible;
+
+.sort-indicator.asc::after {
+    content: ' ▲'; /* Up arrow for ascending */
 }
-    th.sort-desc::after {
-    content: '\25BE'; /* Downward triangle */
-    visibility: visible;
+
+.sort-indicator.desc::after {
+    content: ' ▼'; /* Down arrow for descending */
 }
+
 
 /* pagination  */
 .pagination-controls {

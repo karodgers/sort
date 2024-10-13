@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sortable</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .sort-indicator {
+            margin-left: 5px;
+            font-size: 0.8em; /* Adjust size if needed */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -62,18 +68,18 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Icon</th>
-                                <th>Name</th>
-                                <th>Full Name</th>
-                                <th>Intelligence</th>
-                                <th>Strength</th>
-                                <th>Speed</th>
-                                <th>Gender</th>
-                                <th>Race</th>
-                                <th>Height</th>
-                                <th>Weight</th>
-                                <th>Place Of Birth</th>
-                                <th>Alignment</th>
+                                <th data-column="images.xs">Icon<span class="sort-indicator"></span></th>
+                                <th data-column="name">Name<span class="sort-indicator"></span></th>
+                                <th data-column="biography.fullName">Full Name<span class="sort-indicator"></span></th>
+                                <th data-column="powerstats.intelligence">Intelligence<span class="sort-indicator"></span></th>
+                                <th data-column="powerstats.strength">Strength<span class="sort-indicator"></span></th>
+                                <th data-column="powerstats.speed">Speed<span class="sort-indicator"></span></th>
+                                <th data-column="appearance.gender">Gender<span class="sort-indicator"></span></th>
+                                <th data-column="appearance.race">Race<span class="sort-indicator"></span></th>
+                                <th data-column="appearance.height">Height<span class="sort-indicator"></span></th>
+                                <th data-column="appearance.weight">Weight<span class="sort-indicator"></span></th>
+                                <th data-column="biography.placeOfBirth">Place Of Birth<span class="sort-indicator"></span></th>
+                                <th data-column="biography.alignment">Alignment<span class="sort-indicator"></span></th>
                             </tr>
                         </thead>
                         <tbody id="hero-tbody">
@@ -89,7 +95,6 @@
                     <!-- dynamically generated here -->
                 </div>
             </section>
-            
 
             <section id="hero-details">
             </section>
