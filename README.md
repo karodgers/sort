@@ -18,6 +18,9 @@ This web application allows you to organize, search, and sort superhero data fro
 
     vi. Slick UI: Stylish layout using plain CSS to enhance the overall look and feel of the application.
 
+![Superhero Logo](screenshot/superheroWeb.png)
+
+
 ## 🧑‍💻 Technologies
 
     1. HTML: For the structure and layout.
